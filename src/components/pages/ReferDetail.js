@@ -9,7 +9,9 @@ import {gsap} from "gsap";
 //     <div>ReferDetail</div>
 //   )
 // }
-
+function List({text}){
+    return <p>{text}</p>
+}
 class ReferDetail extends React.Component {
     componentDidMount(){
         const {location, history} = this.props;
@@ -91,41 +93,18 @@ class ReferDetail extends React.Component {
                                         <div className="referDetail__more">
                                             <h4 className="referDetail_h4">더 알아보기</h4>
                                             <p>{location.state.desc2}</p>
+                                            {location.state.Definition.map(text => (
+                                                <List key = {text} text = {text} />
+                                            ))}
                                             <table className="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>특징</th>
-                                                        <th>설명</th>
-                                                    </tr>
-                                                </thead>
                                                 <tbody> 
                                                     <tr>
                                                         <th>버전</th>
                                                         <td>{location.state.version}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>정의</th>
-                                                        <td>{location.state.Definition[0]}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>접근성</th>
-                                                        <td>{location.state.Accessibility}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>연관?</th>
-                                                        <td>{location.state.Related}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>mdn</th>
-                                                        <td>{location.state.mdn}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>w3c</th>
-                                                        <td>{location.state.w3c}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>링크</th>
-                                                        <td>{location.state.link}</td>
+                                                        <th>참조 사이트</th>
+                                                        <td><a href={location.state.link}>webstoryboy</a> / <a href={location.state.w3c}>w3c</a> / <a href={location.state.mdn}>mdn</a></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
