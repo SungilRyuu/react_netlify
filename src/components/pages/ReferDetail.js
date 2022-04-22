@@ -30,6 +30,13 @@ class ReferDetail extends React.Component {
                 bottom: 0,
                 delay: 0.2,
             });
+            gsap.to(".refer__inner", {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                bottom: 0,
+                delay: 1,
+            });
         }, 10)
 
     }
@@ -51,6 +58,39 @@ class ReferDetail extends React.Component {
                                     <div className="refer__table">
                                         <h3>{location.state.title}</h3>
                                         <p>{location.state.desc}</p>
+                                        <table className="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>특징</th>
+                                                    <th>설명</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody> 
+                                                <tr>
+                                                    <th>요소</th>
+                                                    <td>{location.state.element}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>닫는 태그</th>
+                                                    <td>{location.state.tag}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>버전</th>
+                                                    <td>{location.state.version}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>시각적 표현</th>
+                                                    <td>{location.state.view}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>사용성</th>
+                                                    <td>{location.state.use}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div className="referDetail__more">
+                                            <h4 className="referDetail_h4">더 알아보기</h4>
+                                            <p>{location.state.desc2}</p>
                                             <table className="table">
                                                 <thead>
                                                     <tr>
@@ -60,27 +100,36 @@ class ReferDetail extends React.Component {
                                                 </thead>
                                                 <tbody> 
                                                     <tr>
-                                                        <th>요소</th>
-                                                        <td>{location.state.element}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>닫는 태그</th>
-                                                        <td>{location.state.tag}</td>
-                                                    </tr>
-                                                    <tr>
                                                         <th>버전</th>
                                                         <td>{location.state.version}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>시각적 표현</th>
-                                                        <td>{location.state.view}</td>
+                                                        <th>정의</th>
+                                                        <td>{location.state.Definition[0]}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>사용성</th>
-                                                        <td>{location.state.use}</td>
+                                                        <th>접근성</th>
+                                                        <td>{location.state.Accessibility}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>연관?</th>
+                                                        <td>{location.state.Related}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>mdn</th>
+                                                        <td>{location.state.mdn}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>w3c</th>
+                                                        <td>{location.state.w3c}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>링크</th>
+                                                        <td>{location.state.link}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

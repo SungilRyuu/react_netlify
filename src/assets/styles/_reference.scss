@@ -60,6 +60,7 @@
     }
 }
 
+// refer_detail
 .refer__table {
     margin-top: 200px;
     color: var(--white);
@@ -91,6 +92,16 @@
 
     }
 }
+
+.referDetail__more {
+    margin-bottom: 5em;
+    h4 {
+        margin-top: 3em;
+        font-size: 2rem;
+        margin-bottom: 0.5em;
+    }
+}
+
 //레퍼런스 라이트
 .refer__cont.light {
     background-color: var(--light_bg);
@@ -118,3 +129,10 @@
 //         overflow: hidden;
 //     }
 // }
+
+//레퍼런스 에니메이션
+.refer__inner {
+    opacity: 0;
+    transform: translateY(200px);
+}
+

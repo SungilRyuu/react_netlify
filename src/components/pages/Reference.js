@@ -51,6 +51,14 @@ class Reference extends React.Component {
                 delay: 1.3,
                 ease: "power4.out"
             });
+            gsap.to(".refer__inner", {
+                duration: 0.7,
+                y: 0,
+                x: 0,
+                opacity: 1,
+                delay: 1.5,
+                ease: "back.out"
+            });
             // gsap.to(".refer__inner", {
             //     duration: 0.5,
             //     y: 0,
