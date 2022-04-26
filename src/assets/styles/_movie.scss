@@ -22,13 +22,6 @@
 .movie__list {
     color: var(--white);
     font-family: var(--kor_font);
-    h2 {
-        font-size: 3vw;
-        margin-bottom: 1.5em;
-        em {
-            display: block;
-        }
-    }
     ul {
         display: flex;
         justify-content: space-between;
@@ -41,6 +34,11 @@
                 font-size: 1.3rem;
                 font-weight: bold;
                 margin-top: 0.5em;
+                word-wrap:break-word; overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; 
+                -webkit-box-orient: vertical;
             }
             .movie__desc {
                 display: flex;
@@ -82,4 +80,23 @@
 .movie__list {
     opacity: 0;
     transform: translate(0, 100px);
+}
+
+.movie__search {
+    position: relative;
+    input {
+        width: 100%;
+        padding: 1em;
+        border-radius: 50px;
+        font-size: 1rem;
+    }
+    button {
+        position: absolute;
+        right: 4px;
+        bottom: 4px;
+        font-size: 1rem;
+        border: 0;
+        border-radius: 50%;
+        width: 50px; height: 50px;
+    }
 }

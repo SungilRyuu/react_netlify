@@ -8,28 +8,54 @@ import Contact from "../layout/Contact";
 import Footer from "../layout/Footer";
 import Loading from "../basics/Loading";
 import {gsap} from "gsap";
-import axios from "axios";
 
 function Movie() {
     const [movies, setMovies] = useState([])
 
-    // const mainAnimation = () => {
-    //     setTimeout(() => {
+    const mainAnimation = () => {
+        setTimeout(() => {
+            document.getElementById("loading").classList.remove("loading__active")
+            gsap.to("#header", {
+              duration:0.2, 
+              top: 0, 
+              ease: "sine.out"
+            });
+            gsap.to("#footer", {
+              duration:0.6, 
+              bottom: 0,
+              ease: "sine.out"
+            });
+            gsap.to(".cont__title h1", {
+                duration: 1,
+                x: 0,
+                y: 0,
+                opacity: 1,
+                delay: 1.0,
+                ease: "back.out"
+            })
+            gsap.to(".movie__list", {
+                duration: 1.5,
+                x: 0,
+                y: 0,
+                opacity: 1,
+                delay: 1.1,
+                ease: "back.inOut"
+            })
 
-    //     },2000);
-    // }
+        },2000);
+    }
 
-    // const search = (query) => {
-    //     var requestOptions = {
-    //         method: 'GET',
-    //         redirect: 'follow'
-    //       };
+    const search = (query) => {
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+          };
           
-    //       fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_API}&query=${search}`, requestOptions)
-    //         .then(response => response.json())
-    //         .then(result => console.log(result))
-    //         .catch(error => console.log('error', error));
-    // }
+          fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE}&query=${query}`, requestOptions)
+            .then(response => response.json())
+            .then(result => setMovies(result.results))
+            .catch(error => console.log('error', error));
+    }
 
     useEffect(() => {
         var requestOptions = {
@@ -37,21 +63,25 @@ function Movie() {
             redirect: 'follow'
           };
           
-          fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_API}&query=doctor`, requestOptions)
+          fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE}&query=doctor`, requestOptions)
             .then(response => response.json())
-            .then(result => console.log(result))
+            .then(result => {
+                setMovies(result.results)
+                mainAnimation();
+            })
             .catch(error => console.log('error', error));
     }, [])
   return (
     <>
+        <Loading color="light"/>
         <Header color="light"/>
         <Contents color="light">
             <Title title={["Movie", "Search"]}  color="light"/>
                 <div className="movie__cont light">
                     <div className="container">
                         <div className="movie__inner">
-                            {/* <MovieSearch onSearch={search}/> */}
-                            {/* <MovieList movies={movies}/> */}
+                            <MovieSearch onSearch={search}/>
+                            <MovieList movies={movies}/>
                         </div>
                     </div>
                 </div>
@@ -71,33 +101,33 @@ export default Movie
 //     }
 
 //     mainAnimation = () => {
-//         setTimeout(() => {
-//           gsap.to("#header", {
-//             duration:0.2, 
-//             top: 0, 
-//             ease: "sine.out"
-//           });
-//           gsap.to("#footer", {
-//             duration:0.6, 
-//             bottom: 0,
-//             ease: "sine.out"
-//           });
-//           gsap.to(".cont__title h1", {
-//               duration: 1,
-//               x: 0,
-//               y: 0,
-//               opacity: 1,
-//               delay: 1.0,
-//               ease: "back.out"
-//           })
-//           gsap.to(".movie__list", {
-//               duration: 1.5,
-//               x: 0,
-//               y: 0,
-//               opacity: 1,
-//               delay: 1.1,
-//               ease: "back.inOut"
-//           })
+        // setTimeout(() => {
+        //   gsap.to("#header", {
+        //     duration:0.2, 
+        //     top: 0, 
+        //     ease: "sine.out"
+        //   });
+        //   gsap.to("#footer", {
+        //     duration:0.6, 
+        //     bottom: 0,
+        //     ease: "sine.out"
+        //   });
+        //   gsap.to(".cont__title h1", {
+        //       duration: 1,
+        //       x: 0,
+        //       y: 0,
+        //       opacity: 1,
+        //       delay: 1.0,
+        //       ease: "back.out"
+        //   })
+        //   gsap.to(".movie__list", {
+        //       duration: 1.5,
+        //       x: 0,
+        //       y: 0,
+        //       opacity: 1,
+        //       delay: 1.1,
+        //       ease: "back.inOut"
+        //   })
 //         })
 //     }
 
