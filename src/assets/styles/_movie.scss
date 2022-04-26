@@ -1,0 +1,85 @@
+.movie__cont {
+    background: var(--black);
+    overflow: hidden;
+    .movie__inner {
+        color: var(--white);
+        overflow: hidden;
+    }
+}
+
+//light
+.movie__cont.light {
+    background: var(--light_bg);
+    .movie__inner {
+        color: var(--black);
+        .movie__list {
+            color: var(--black);
+            background: var(--light_bg);
+        }
+    }
+}
+
+.movie__list {
+    color: var(--white);
+    font-family: var(--kor_font);
+    h2 {
+        font-size: 3vw;
+        margin-bottom: 1.5em;
+        em {
+            display: block;
+        }
+    }
+    ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 10rem;
+        li {
+            flex: 0 0 24%;
+            padding: 1em 1em;
+            .title {
+                font-size: 1.3rem;
+                font-weight: bold;
+                margin-top: 0.5em;
+            }
+            .movie__desc {
+                display: flex;
+                margin-bottom: 1em;
+                .date {
+                    margin-right: auto;
+                }
+                .view {
+                    &:hover {
+                        background: #fff;
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:960px) {
+    .movie__list {
+        ul {
+            li {
+                flex: 0 0 30%;
+            }
+        }
+    }
+}
+@media (max-width:800px) {
+    .movie__list {
+        ul {
+            li {
+                flex: 0 0 49%;
+            }
+        }
+    }
+}
+
+//movie 애니메이션
+.movie__list {
+    opacity: 0;
+    transform: translate(0, 100px);
+}

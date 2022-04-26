@@ -8,21 +8,6 @@ import Footer from "../layout/Footer";
 import Loading from "../basics/Loading";
 import {gsap} from "gsap";
 
-
-// function About(){
-//     return (
-//         <>
-//             <Header color="light" />
-//             <Contents >
-//                 <Title title={["about", "me"]} color="light"/>
-//                 <AboutCont color="light" />
-//             <ContContact />
-//             </Contents>
-//             <Footer color="light" />
-//         </>
-//     )
-// }
-
 class About extends React.Component {
     state = {
         isLoading: true,
