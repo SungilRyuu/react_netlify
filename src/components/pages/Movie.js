@@ -41,6 +41,14 @@ function Movie() {
                 delay: 1.1,
                 ease: "back.inOut"
             })
+            gsap.to(".movie__search", {
+                duration: 1.5,
+                x: 0,
+                y: 0,
+                opacity: 1,
+                delay: 1.3,
+                ease: "sine.out"
+            })
 
         },2000);
     }
