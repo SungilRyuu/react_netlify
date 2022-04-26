@@ -9,6 +9,8 @@ import Footer from "../layout/Footer";
 import YoutubeList from '../includes/YoutubeList';
 import {gsap} from "gsap";
 
+// require('dotenv').config()
+
 function Youtube() {
   const [videos, setVideos] = useState([])
   

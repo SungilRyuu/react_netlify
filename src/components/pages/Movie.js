@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Header from "../layout/Header";
 import Contents from "../layout/Contents";
 import Title from "../layout/Title";
@@ -19,17 +19,29 @@ function Movie() {
     //     },2000);
     // }
 
+    // const search = (query) => {
+    //     var requestOptions = {
+    //         method: 'GET',
+    //         redirect: 'follow'
+    //       };
+          
+    //       fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_API}&query=${search}`, requestOptions)
+    //         .then(response => response.json())
+    //         .then(result => console.log(result))
+    //         .catch(error => console.log('error', error));
+    // }
+
     useEffect(() => {
         var requestOptions = {
             method: 'GET',
             redirect: 'follow'
           };
           
-          fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_APP_API}&query=doctor`, requestOptions)
+          fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_API}&query=doctor`, requestOptions)
             .then(response => response.json())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
-    })
+    }, [])
   return (
     <>
         <Header color="light"/>
@@ -38,8 +50,8 @@ function Movie() {
                 <div className="movie__cont light">
                     <div className="container">
                         <div className="movie__inner">
-                            <MovieSearch onSearch={search}/>
-                            <MovieList movies={movies}/>
+                            {/* <MovieSearch onSearch={search}/> */}
+                            {/* <MovieList movies={movies}/> */}
                         </div>
                     </div>
                 </div>
